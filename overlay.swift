@@ -8,7 +8,7 @@ class OverlayWindow: NSWindow {
 
 class OverlayView: NSView {
     var fact: String = ""
-    var countdown: Int = 10
+    var countdown: Int = 20
     var canDismiss = false
     var countdownTimer: Timer?
     var frameTimer: Timer?
@@ -115,7 +115,7 @@ class OverlayView: NSView {
                          color: green.withAlphaComponent(textAlpha),
                          font: monoSmall, at: y)
         } else if countdownStarted {
-            let filled = 10 - countdown
+            let filled = 20 - countdown
             let bar = String(repeating: "█", count: filled) + String(repeating: "░", count: countdown)
             drawCentered("\(bar)  \(countdown)s",
                          color: pink.withAlphaComponent(textAlpha * 0.7),
@@ -124,6 +124,8 @@ class OverlayView: NSView {
     }
 
     override func keyDown(with event: NSEvent) {
+        // Escape always force-quits (safety valve if frozen after sleep)
+        if event.keyCode == 53 { NSApplication.shared.terminate(nil) }
         if canDismiss { NSApplication.shared.terminate(nil) }
     }
 
@@ -208,6 +210,13 @@ for screen in NSScreen.screens {
     }
 
     windows.append(window)
+}
+
+// Quit if system goes to sleep — prevents frozen overlay on wake
+NSWorkspace.shared.notificationCenter.addObserver(
+    forName: NSWorkspace.willSleepNotification,
+    object: nil, queue: .main) { _ in
+    NSApplication.shared.terminate(nil)
 }
 
 app.activate(ignoringOtherApps: true)
