@@ -5,7 +5,7 @@ A ghostly eye care reminder for macOS.
 Every 20 minutes, a full-screen overlay takes over your screen with an animated ASCII ghost and a random fun fact — forcing you to rest your eyes.
 
 - **20-20-20 rule** — look at something 20 feet away
-- **20-second lockout** — can't dismiss early
+- **20-second lockout** — press `s` to skip early, any key to dismiss after
 - **30fps ASCII animation** — 235 frames
 - **Auto-starts on login**, survives reboots
 
@@ -100,6 +100,7 @@ Every frame, `draw()` is called. It:
 **4. Dismissal (lines 126–134)**
 
 - **Escape key** always quits immediately (safety valve — prevents getting stuck after sleep)
+- **`s` key** skips the lockout and quits immediately at any point during the countdown
 - **Any other key or mouse click** quits only after the countdown reaches 0
 
 **5. Sleep handling (lines 215–220)**
@@ -132,6 +133,7 @@ The plist uses `__HOME__` as a placeholder — replace it with your actual home 
 |---|---|
 | Break interval | `StartInterval` in the plist (value in seconds) |
 | Lockout duration | `countdown: Int = 20` in overlay.swift (line 11) |
+| Skip key | `event.keyCode == 1` in `keyDown` — change to any keyCode you prefer |
 | Progress bar width | `let filled = 20 - countdown` in overlay.swift (line 118) — keep in sync with countdown |
 | Font | `monoFont` / `monoSmall` / `frameFont` declarations (lines 32–37) |
 | Colors | The synthwave palette block (lines 25–30) |
