@@ -120,12 +120,17 @@ class OverlayView: NSView {
             drawCentered("\(bar)  \(countdown)s",
                          color: pink.withAlphaComponent(textAlpha * 0.7),
                          font: monoSmall, at: y)
+            y -= 25
+            drawCentered("s → skip",
+                         color: dimGray.withAlphaComponent(textAlpha * 0.4),
+                         font: monoSmall, at: y)
         }
     }
 
     override func keyDown(with event: NSEvent) {
         // Escape always force-quits (safety valve if frozen after sleep)
         if event.keyCode == 53 { NSApplication.shared.terminate(nil) }
+        if event.keyCode == 1  { NSApplication.shared.terminate(nil) } // s = skip
         if canDismiss { NSApplication.shared.terminate(nil) }
     }
 
