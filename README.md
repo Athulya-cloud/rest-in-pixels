@@ -1,19 +1,18 @@
-# rest-in-pixels 👻
+<h1 align="center">rest-in-pixels 👻</h1>
+<p align="center"><b>Your eyes called. They want a break.</b></p>
 
-A little ghost that reminds you to rest your eyes.
+<p align="center"><img src="assets/demo.gif" alt="rest-in-pixels demo" width="640"></p>
 
-Every 20 minutes, your screen goes dark and an animated ASCII ghost floats in with a random fun fact. Look away, breathe, and come back refreshed. macOS only.
+You've been staring at a screen for hours. Every 20 minutes, a friendly ASCII ghost drifts in, takes over your display and tells you to look away. A random fun fact keeps it fun. Twenty seconds later you're back, with eyes that don't feel like sandpaper.
 
-![rest-in-pixels demo](assets/demo.gif)
+Free, tiny, and macOS only. No account, no dependencies, no nagging notifications you'll swipe away.
 
-## What it does
+## Why you'll like it
 
-- **Every 20 minutes** a full-screen overlay appears on all your displays
-- **20-second break**, then press any key or click to dismiss
-- **Press `s`** to skip the break early, or **`Esc`** to quit instantly
-- **Starts automatically** when you log in
-
-Based on the 20-20-20 rule: every 20 minutes, look at something 20 feet away for 20 seconds.
+- **You can't ignore it.** A full-screen overlay on every display, not a notification you dismiss without reading
+- **Built on the 20-20-20 rule:** every 20 minutes, look at something 20 feet away for 20 seconds
+- **Never trapped:** press `s` to skip, or `Esc` to quit instantly
+- **Set and forget:** starts automatically when you log in
 
 ## Install
 
